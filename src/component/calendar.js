@@ -9,10 +9,9 @@ const Calendar = () => {
   const firstWeek = today.clone().startOf('month').week();
   const lastWeek = today.clone().endOf('month').week() === 1 ? 53 : today.clone().endOf('month').week();
 
-  const Day = (index, styles={}, day, clk= f => f )=>{
-    console.log({...styles});
+  const Day = ({index, styles={}, day})=>{
     return (
-      <td key={index} style={{...styles}} onClick={clk}>
+      <td key={index} style={{...styles}} >
         <span>{day}</span>
       </td>
     )
