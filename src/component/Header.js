@@ -8,14 +8,14 @@ export default function Header() {
     return (<VscHome onClick={fn} style={{width:'25px', height:'25px', padding: '15px 0 0 15px'}}/>)
   }
 
-  function GoAccount({fn = f => f}){
-    return (<div style={{float:'right', padding: '15px 15px 0 0'}}>김희은님<VscAccount onclick={fn} style={{width:'25px', height:'25px'}}/></div>)
+  function GoAccount({userId, fn = f => f}){
+    return (<div style={{float:'right', padding: '15px 15px 0 0'}}>{userId}님<VscAccount onclick={fn} style={{width:'25px', height:'25px'}}/></div>)
   }
 
   return (
     <div id="header">
       <GoHome fn={()=> alert('go home')}/>
-      <GoAccount fn={()=> alert('go Account')}/>
+      <GoAccount userId="김희은" fn={()=> alert('go Account')}/>
     </div>
   );
 };

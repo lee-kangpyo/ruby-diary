@@ -5,47 +5,48 @@ import moment from 'moment';
 const Calendar = () => {
   const [getMoment, setMoment]=useState(moment());
 
- const today = getMoment;
- const firstWeek = today.clone().startOf('month').week();
- const lastWeek = today.clone().endOf('month').week() === 1 ? 53 : today.clone().endOf('month').week();
+  const today = getMoment;
+  const firstWeek = today.clone().startOf('month').week();
+  const lastWeek = today.clone().endOf('month').week() === 1 ? 53 : today.clone().endOf('month').week();
 
-   const calendarArr=()=>{
+  const Day = ({index, styles={}, day})=>{
+    return (
+      <td key={index} style={{...styles}} >
+        <span>{day}</span>
+      </td>
+    )
+  }
 
-     let result = [];
-     let week = firstWeek;
-     for ( week; week <= lastWeek; week++) {
-       result = result.concat(
-         <tr key={week}>
-           {
-             Array(7).fill(0).map((data, index) => {
-               let days = today.clone().startOf('year').week(week).startOf('week').add(index, 'day'); //d로해도되지만 직관성
+  const calendarArr=()=>{
+    let result = [];
+    let week = firstWeek;
+    for ( week; week <= lastWeek; week++) {
+      result = result.concat(
+        <tr key={week}>
+          {
+            Array(7).fill(0).map((data, index) => {
+              let days = today.clone().startOf('year').week(week).startOf('week').add(index, 'day'); //d로해도되지만 직관성
 
-               if(moment().format('YYYYMMDD') === days.format('YYYYMMDD')){
-                 return(
-                     <td key={index} style={{backgroundColor:'red'}} >
-                       <span>{days.format('D')}</span>
-                     </td>
-                 );
-               }else if(days.format('MM') !== today.format('MM')){
-                 return(
-                     <td key={index} style={{backgroundColor:'gray'}} >
-                       <span>{days.format('D')}</span>
-                     </td>
-                 );
-               }else{
-                 return(
-                     <td key={index}  >
-                       <span>{days.format('D')}</span>
-                     </td>
-                 );
-               }
-             })
-           }
-         </tr>
-       );
-     }
-     return result;
-   }
+              if(moment().format('YYYYMMDD') === days.format('YYYYMMDD')){
+                return(
+                  <Day key={index} index={index} styles={{backgroundColor:'red'}} day={days.format('D')} />
+                );
+              }else if(days.format('MM') !== today.format('MM')){
+                return(
+                  <Day key={index} index={index} styles={{backgroundColor:'gray'}} day={days.format('D')} />
+                );
+              }else{
+                return(
+                  <Day key={index} index={index} day={days.format('D')} />
+                );
+              }
+            })
+          }
+        </tr>
+      );
+    }
+    return result;
+  }
 
  return (
    <div className="calendar">
