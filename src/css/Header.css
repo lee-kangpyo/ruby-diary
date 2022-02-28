@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'beanpoleotB00';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/beanpoleotB00.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.header {
+  background-color : #ffeb60;
+  height: 5vh;
+  padding-top: 2vh;
+}
+.headerTitle{
+  font-family: 'beanpoleotB00';
+  display : inline-block;
+  padding-left : 3vh;
+}
+.headerUser{
+  font-family: 'Pretendard-Regular';
+  display : inline-block;
+  float : right;
+  padding-right : 4vh;
+  font-size: 2vh;
+}

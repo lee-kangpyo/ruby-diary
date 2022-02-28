@@ -17,6 +17,14 @@ const Calendar = () => {
     )
   }
 
+  const DayHeader = ({day}) => {
+    return (
+      <td>
+        <span>{day}</span>
+      </td>
+    )
+  }
+
   const calendarArr=()=>{
     let result = [];
     let week = firstWeek;
@@ -30,11 +38,11 @@ const Calendar = () => {
 
               if(moment().format('YYYYMMDD') === days.format('YYYYMMDD')){
                 return(
-                  <Day key={index} index={index} styles={{backgroundColor:'red'}} day={days.format('D')} />
+                  <Day key={index} index={index} styles={{color:'red'}} day={days.format('D')} />
                 );
               }else if(days.format('MM') !== today.format('MM')){
                 return(
-                  <Day key={index} index={index} styles={{backgroundColor:'gray'}} day={days.format('D')} />
+                  <Day key={index} index={index} styles={{color:'#dadce0'}} day={days.format('D')} />
                 );
               }else{
                 return(
@@ -52,12 +60,23 @@ const Calendar = () => {
  return (
    <div className="calendar">
        <div className="control">
-         <button onClick={()=>{ setMoment(getMoment.clone().subtract(1, 'month')) }} >이전달</button>
-         <span>{today.format('YYYY 년 MM 월')}</span>
-         <button onClick={()=>{ setMoment(getMoment.clone().add(1, 'month')) }} >다음달</button>
+         <span>{today.format('YYYY. MM')}</span>
+         <span style={{float : "right"}}>
+          <button className="monthMoveB" onClick={()=>{ setMoment(getMoment.clone().subtract(1, 'month')) }} >&lt;</button>
+          <button className="monthMoveB" onClick={()=>{ setMoment(getMoment.clone().add(1, 'month')) }} >&gt;</button>
+         </span>
        </div>
        <table>
          <tbody>
+           <tr className="calendarHead">
+              <td>SUN</td>
+              <td>MON</td>
+              <td>TUE</td>
+              <td>WED</td>
+              <td>THU</td>
+              <td>FRI</td>
+              <td>SAT</td>
+           </tr>
            {calendarArr()}
          </tbody>
        </table>
