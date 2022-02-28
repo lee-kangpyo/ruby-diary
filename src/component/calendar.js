@@ -21,7 +21,8 @@ const Calendar = () => {
     let result = [];
     let week = firstWeek;
     for ( week; week <= lastWeek; week++) {
-      result = result.concat(
+      //map 사용하려면 key값 필요.(함수)
+      result = result.concat(//순수함수 - 배열의 마지막 부분에 추가함
         <tr key={week}>
           {
             Array(7).fill(0).map((data, index) => {
