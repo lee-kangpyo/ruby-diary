@@ -12,6 +12,7 @@ const Calendar = () => {
   const Day = ({index, styles={}, day})=>{
     return (
       <td key={index} style={{...styles}} >
+        <img src="https://th.bing.com/th/id/OIP.Qv7WaLO2h2yL4Gh93x-8YAHaKm?pid=ImgDet&amp;rs=1" style={{height: "83%", marginLeft: "0.5vh", marginTop: "1.8vh"}}></img>
         <span>{day}</span>
       </td>
     )

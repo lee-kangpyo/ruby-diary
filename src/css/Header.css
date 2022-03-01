@@ -6,9 +6,9 @@
 }
 
 .header {
-  background-color : #ffeb60;
-  height: 5vh;
+  height: 4.5vh;
   padding-top: 2vh;
+  border-bottom: 1px solid #dadce0;
 }
 .headerTitle{
   font-family: 'beanpoleotB00';
