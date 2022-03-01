@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import '../css/Calendar.css'
 import moment from 'moment';
+import movies from '../testData/movieData.json';
 
 const Calendar = () => {
   const [getMoment, setMoment]=useState(moment());
@@ -10,10 +11,12 @@ const Calendar = () => {
   const lastWeek = today.clone().endOf('month').week() === 1 ? 53 : today.clone().endOf('month').week();
 
   const Day = ({index, styles={}, day})=>{
+    var movie = movies.filter( movie => movie.date == day.format("YYYYMMDD"))
+    var movieImge = (movie.length > 0)?<img src={movie[0].image} style={{height: "83%", marginLeft: "0.5vh", marginTop: "1.8vh"}}></img>:""
     return (
       <td key={index} style={{...styles}} >
-        <img src="https://th.bing.com/th/id/OIP.Qv7WaLO2h2yL4Gh93x-8YAHaKm?pid=ImgDet&amp;rs=1" style={{height: "83%", marginLeft: "0.5vh", marginTop: "1.8vh"}}></img>
-        <span>{day}</span>
+        {movieImge}
+        <span>{day.format('D')}</span>
       </td>
     )
   }
@@ -36,18 +39,17 @@ const Calendar = () => {
           {
             Array(7).fill(0).map((data, index) => {
               let days = today.clone().startOf('year').week(week).startOf('week').add(index, 'day'); //d로해도되지만 직관성
-
               if(moment().format('YYYYMMDD') === days.format('YYYYMMDD')){
                 return(
-                  <Day key={index} index={index} styles={{color:'red'}} day={days.format('D')} />
+                  <Day key={index} index={index} styles={{color:'red'}} day={days} />
                 );
               }else if(days.format('MM') !== today.format('MM')){
                 return(
-                  <Day key={index} index={index} styles={{color:'#dadce0'}} day={days.format('D')} />
+                  <Day key={index} index={index} styles={{color:'#dadce0'}} day={days} />
                 );
               }else{
                 return(
-                  <Day key={index} index={index} day={days.format('D')} />
+                  <Day key={index} index={index} day={days} />
                 );
               }
             })
