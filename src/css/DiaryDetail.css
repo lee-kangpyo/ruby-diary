@@ -1,0 +1,14 @@
+.diaryDetail {
+    margin-left: 3vw;
+    background-color: #fff;
+    width : 46%;
+    border-radius: 37px / 37px;
+}
+
+.writeD {
+    float: right;
+    margin: 1.5vh 3vh;
+    font-size: 6vh;
+    background-color: #fff;
+    border: 0px;
+}

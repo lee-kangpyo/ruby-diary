@@ -9,5 +9,7 @@
 
 .mainContainer {
   padding : 2vh;
+  display: flex;
+  background-color: #f7f9fa;
 }
 
