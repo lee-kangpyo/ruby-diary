@@ -12,6 +12,7 @@ html, body {
   background-color: #fff;
   height:100vh;
   width:46%;
+  min-width: 735px;
   font-size: 2.5vh;
   /*display: flex;*/      /* display 설정해줘야 아래 flex로 해주면 direction 선택가능*/
   flex-direction: column;   /* 이건 세로순으로  태그들을 표시함 css*/
@@ -46,13 +47,14 @@ html, body {
 }
 .calendar tr{
     display:flex;
-    flex-direction: row;  
+    flex-direction: row;
 }
 .calendar td{
     display: flex;
     border-left: 1px solid #dadce0;
     border-top: 1px solid #dadce0;
     width: 6vw;
+    min-width: 100px;
     padding : 0.5vh 0 0 0.5vh;
     height: 15vh;
     font-size: 1.5vh;
