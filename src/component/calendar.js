@@ -2,8 +2,9 @@ import {useState} from 'react';
 import '../css/Calendar.css'
 import moment from 'moment';
 import movies from '../testData/movieData.json';
+import DiaryDetail from '../component/DiaryDetail.js';
 
-const Calendar = () => {
+const Calendar = ({buttonValueSetting}) => {
   const [getMoment, setMoment]=useState(moment());
 
   const today = getMoment;
@@ -11,11 +12,15 @@ const Calendar = () => {
   const lastWeek = today.clone().endOf('month').week() === 1 ? 53 : today.clone().endOf('month').week();
 
   const Day = ({index, styles={}, day})=>{
-    var movie = movies.filter( movie => movie.date == day.format("YYYYMMDD"))
-    var movieImge = (movie.length > 0)?<img src={movie[0].image} style={{height: "83%", marginLeft: "0.5vh", marginTop: "1.8vh"}}></img>:""
+    var movie = movies.filter( movie => movie.date == day.format("YYYYMMDD"));
+    var movieImge = movie.map(
+      (data, idx) => (<img src={movie[0].image}/>)
+    );
     return (
-      <td key={index} style={{...styles}} >
+      <td style={{...styles}} >
+        <button className={"poster"+movie.length} name={"diaryDetail"} onClick={buttonValueSetting}>
         {movieImge}
+        </button>
         <span>{day.format('D')}</span>
       </td>
     )

@@ -1,14 +1,69 @@
 .diaryDetail {
-    margin-left: 3vw;
+    margin-left: 4vw;
     background-color: #fff;
-    width : 46%;
+    width : 35%;
     border-radius: 37px / 37px;
 }
 
 .writeD {
     float: right;
-    margin: 1.5vh 3vh;
-    font-size: 6vh;
-    background-color: #fff;
+    margin: 0 3vh;
+    font-size: 2vh;
+    background-color: #000;
     border: 0px;
+    color: #fff;
+    border-radius: 10px / 10px;
+    padding: 0.5vh 1vh;
+}
+
+.detailDay {
+    font-family: 'appleL';
+    font-size: 2.5vh;
+    margin: 1.5vh 0 0 2vh;
+    padding: 1.5vh;
+}
+
+.detailInfo {
+    width: 86%;
+    white-space: pre-line;
+    font-family: 'appleL';
+    font-size: 3vh;
+    margin: 0.5vh 0 0 0.5vh;
+    padding: 1.5vh 3.5vh;
+    border-top: 1px solid;
+}
+
+.detailInfo img {
+    border-radius: 28px / 28px;
+    width: 26vh;
+    margin: 1vh 0 1vh 0;
+}
+
+.detailInfo .left {
+    display: inline-block;
+    width: 50%;
+}
+
+.detailInfo .right {
+    padding-left: 2vh;
+    display: inline-block;
+    width: 46%;
+    vertical-align: top;
+    text-align: center;
+}
+
+.detailInfo .right .score {
+    font-size: 6.5vh;
+    font-family: 'appleL';
+    text-align: center;
+    margin: 4vh 0 2vh 0px;
+}
+
+.detailInfo .right .title {
+    font-size: 3vh;
+    font-family: 'appleH';
+}
+
+.detailInfo .right .subTitle {
+    font-size: 2.3vh;
 }

@@ -20,6 +20,7 @@ html, body {
   justify-content: center;  /* 이건 세로 중앙 css*/
   padding : 1.5vw;
   text-align: center;
+  margin-left : 4vh;
 }
 .calendar .control{
   font-family: "Pretendard-Regular";
@@ -59,6 +60,57 @@ html, body {
     height: 15vh;
     font-size: 1.5vh;
     font-family: 'appleL';
+}
+.calendar td button{
+  height: 83%;
+  margin-left: 0.5vh;
+  margin-top: 1.8vh;
+  padding-right: 0;
+  overflow: hidden;
+  display: flex;
+  border: 0;
+  background-color: #fff;
+  cursor: pointer;
+}
+.calendar td button img{
+  position: relative;
+  pointer-events: none;
+}
+.poster1 img{
+  height: 100%;
+}
+.poster2 img:nth-child(1){
+  height: 100%;
+}
+.poster2 img:nth-child(2){
+  height: 100%;
+  left : -38%;
+}
+.poster3 img:nth-child(1){
+  height: 100%;
+}
+.poster3 img:nth-child(2){
+  height: 50%;
+  left: -48%;
+}
+.poster3 img:nth-child(3){
+  height: 50%;
+  left: -97%;
+  top: 50%;
+}
+.poster4 img{
+  height: 50%;
+}
+.poster4 img:nth-child(2){
+  top: 50%;
+  left: -44%;
+}
+.poster4 img:nth-child(3){
+  left: -45%;
+}
+.poster4 img:nth-child(4){
+  left: -88%;
+  top: 50%;
 }
 .calendar td span{
     display: flex;
